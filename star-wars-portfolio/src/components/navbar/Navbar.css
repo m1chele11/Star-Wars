@@ -1,0 +1,36 @@
+/* Navbar.css */
+.navbar {
+    background-color: #000;
+    color: #FFE81F;;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar-logo {
+    font-family: 'Star Jedi', sans-serif;
+    font-size: 1.5rem;
+  }
+  
+  .navbar-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .navbar-link {
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: #00f9ff;
+    transition: color 0.3s;
+  }
+
+  ul {
+    list-style-type: none; /* Remove bullets */
+
+  }
+  
+  .navbar-link:hover {
+    color: #ff004c;
+  }
+  
