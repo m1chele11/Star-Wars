@@ -18,6 +18,13 @@
   position: relative;
   z-index: 1;
   color: white;
+  text-align: center;
+}
+
+.crawl-text {
+  font-size: 3rem; /* Optional: Adjust text size */
+  font-family: 'Arial', sans-serif; /* Optional: Adjust font family */
+  line-height: 1.5; /* Optional: Adjust line height */
 }
 
 .hero-title {
