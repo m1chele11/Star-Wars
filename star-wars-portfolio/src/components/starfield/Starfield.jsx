@@ -63,7 +63,7 @@ const StarField = () => {
     };
   }, []);
 
-  return <div ref={mountRef} style={{ position: 'absolute', top: 0, left: 0, zIndex: -1 }} />;
+  return <div ref={mountRef} style={{ position: 'absolute', top: 0, left: 0, zIndex: -1, height: '100vh', width: '100%',}} />;
 };
 
 export default StarField;

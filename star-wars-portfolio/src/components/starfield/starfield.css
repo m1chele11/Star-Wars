@@ -1,0 +1,15 @@
+/* StarField.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Prevent scrollbars */
+  }
+  
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* This ensures that the starry background stays behind all content */
+  }
+  

@@ -22,9 +22,9 @@
 }
 
 .crawl-text {
-  font-size: 3rem; /* Optional: Adjust text size */
-  font-family: 'Arial', sans-serif; /* Optional: Adjust font family */
-  line-height: 1.5; /* Optional: Adjust line height */
+  font-size: 3rem; 
+  font-family: 'Arial', sans-serif;
+  line-height: 1.5;
 }
 
 .hero-title {
