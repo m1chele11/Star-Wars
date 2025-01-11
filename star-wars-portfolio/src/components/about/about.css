@@ -48,17 +48,28 @@
     }
   }
   
-  .about-text {
+  
+.about-text {
     flex: 2;
     position: relative;
     z-index: 2;
-    max-width: 600px; /* Limit width for text */
+    max-width: 600px;
     margin-left: 20px;
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 1s ease-out, transform 1s ease-out;
-    overflow-wrap: break-word; /* Handle long text gracefully */
+    overflow-wrap: break-word;
+    color: #FFE81F;
+}
+
+  .title{
+    align-items: center;
   }
+
+  .time-ago{
+    color: white;
+  }
+
   
   .about-text.start-animation {
     opacity: 1;
@@ -121,4 +132,6 @@
     }
   }
   
+
+
   

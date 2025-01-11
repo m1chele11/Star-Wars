@@ -1,0 +1,9 @@
+.about-section {
+    cursor: pointer;    
+  }
+  
+        
+  .about-section:hover {
+    opacity: 0.8;   
+  }
+  

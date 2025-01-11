@@ -1,13 +1,18 @@
 import { useEffect } from 'react';
 import './About.css';
 
-
 const About = () => {
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('start-animation');
+          // Optionally, switch background to static starfield when in view
+          document.querySelector('.about-me').classList.add('transition-background');
+        } else {
+          entry.target.classList.remove('start-animation');
+          // Reset to the moving starfield when leaving view
+          document.querySelector('.about-me').classList.remove('transition-background');
         }
       });
     });
@@ -31,10 +36,10 @@ const About = () => {
         />
       </div>
       <div className="about-text">
-        <p>A long time ago, in a galaxy far, far away...</p>
-        <h2>About Me</h2>
+        <p className='time-ago'>A long time ago, in a galaxy far, far away...</p>
+        <h2 className='title'>About Me</h2>
         <div className="lightsaber-separator"></div>
-        <p>
+        <p className='time-ago'>
         🚀 As a driven and enthusiastic 3rd-year Computer 
         Science student specializing in software engineering with a
         minor in security informatics at Indiana University&apos;s Luddy 
@@ -55,5 +60,6 @@ const About = () => {
 };
 
 export default About;
+
 
 

@@ -33,6 +33,13 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
+      'react/no-unknown-property': [
+        'error',
+        {
+          ignore: ['intensity', 'position', 'args', 'color'], // Add more Three.js props as needed
+        },
+      ],
     },
   },
 ]
+
