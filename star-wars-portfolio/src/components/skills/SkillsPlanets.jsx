@@ -1,6 +1,7 @@
-import { Canvas } from '@react-three/fiber';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Sphere, Stars, Text } from '@react-three/drei';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import PropTypes from 'prop-types'; // Import PropTypes for prop validation
 
 const SkillsPlanets = () => {
   const planets = [
@@ -33,52 +34,76 @@ const SkillsPlanets = () => {
 
           {/* Planet Title */}
           <Text
-            position={[0, 3, 0]}  // Increased vertical offset for title
+            position={[0, 3, 0]} // Increased vertical offset for title
             fontSize={0.5}
             color="white"
             anchorX="center"
             anchorY="middle"
-            glow={hoveredPlanet === planet ? 1 : 0.5}
           >
             {planet.name}
           </Text>
 
-          {/* Rotating Skills (Text) */}
-          {planet.skills.map((skill, idx) => {
-            const angle = (idx * 2 * Math.PI) / planet.skills.length; // Evenly distribute the skills in a circle
-            const radius = 4; // Distance from the planet
-            const orbitSpeed = 0.02; // Speed of rotation
-
-            return (
-              <group
-                key={idx}
-                position={[
-                  Math.sin(angle) * radius,  // Horizontal orbit path
-                  0,                          // Fixed height
-                  Math.cos(angle) * radius,  // Vertical orbit path
-                ]}
-                rotation={[0, angle + orbitSpeed, 0]} // Continuous rotation of text
-              >
-                <Text
-                  position={[1.8, 0, 0]}  // Adjusted position of skill text
-                  fontSize={0.2}
-                  color="white"
-                  anchorX="center"
-                  anchorY="middle"
-                  glow={hoveredPlanet === planet ? 1 : 0.3}
-                >
-                  {skill}
-                </Text>
-              </group>
-            );
-          })}
+          {/* Rotating Skills */}
+          <RotatingSkills skills={planet.skills} radius={4} />
         </group>
       ))}
     </Canvas>
   );
 };
 
+const RotatingSkills = ({ skills, radius }) => {
+  const groupRef = useRef();
+
+  useFrame(({ camera }) => {
+    if (groupRef.current) {
+      // Rotate the entire group of orbiting skills
+      groupRef.current.rotation.y += 0.01;
+
+      // Make each skill text face the camera
+      groupRef.current.children.forEach((child) => {
+        if (child.lookAt) {
+          child.lookAt(camera.position);
+        }
+      });
+    }
+  });
+
+  return (
+    <group ref={groupRef}>
+      {skills.map((skill, idx) => {
+        const angle = (idx * 2 * Math.PI) / skills.length; // Evenly spaced angle
+        const x = Math.sin(angle) * radius;
+        const z = Math.cos(angle) * radius;
+
+        return (
+          <Text
+            key={idx}
+            position={[x, 0, z]}
+            fontSize={0.2}
+            color="white"
+            anchorX="center"
+            anchorY="middle"
+          >
+            {skill}
+          </Text>
+        );
+      })}
+    </group>
+  );
+};
+
+// Prop validation for RotatingSkills
+RotatingSkills.propTypes = {
+  skills: PropTypes.arrayOf(PropTypes.string).isRequired,
+  radius: PropTypes.number.isRequired,
+};
+
 export default SkillsPlanets;
+
+
+
+
+
 
 
 

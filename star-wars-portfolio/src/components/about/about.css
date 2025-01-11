@@ -12,6 +12,8 @@
     padding: 20px;
     box-sizing: border-box; /* Include padding in width/height calculations */
     overflow: hidden; /* Prevent horizontal scrolling caused by overflow */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition */
+    cursor: default; /* Default cursor */
   }
   
   .avatar-container {
@@ -22,6 +24,11 @@
     padding: 10px;
     max-width: 300px; /* Restrict width for better responsiveness */
     box-sizing: border-box;
+  }
+
+  .about-me:hover{
+    opacity: 0.8; /* Slightly darken the section */
+    cursor: pointer;
   }
   
   .avatar-hologram {
