@@ -1,24 +1,25 @@
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Sphere, Stars, Text } from '@react-three/drei';
 import { useRef, useState } from 'react';
 import PropTypes from 'prop-types'; // Import PropTypes for prop validation
 
 const SkillsPlanets = () => {
   const planets = [
-    { name: 'Frontend', color: '#00BFFF', position: [-5, 5, 0], skills: ['React', 'CSS', 'JavaScript'] },
-    { name: 'Backend', color: '#32CD32', position: [5, 5, 0], skills: ['Java', 'Node.js', 'Spring Boot'] },
-    { name: 'Security', color: '#FF4500', position: [-5, -5, 0], skills: ['Snort', 'iptables', 'OWASP'] },
-    { name: 'AI', color: '#8A2BE2', position: [5, -5, 0], skills: ['TensorFlow', 'PyTorch', 'NLP'] },
+    { name: 'Frontend', color: '#00BFFF', position: [-8, 5, 0], skills: ['React', 'CSS', 'JavaScript'] },
+    { name: 'Backend', color: '#32CD32', position: [8, 5, 0], skills: ['Java', 'Node.js', 'Spring Boot'] },
+    { name: 'Security', color: '#FF4500', position: [-8, -5, 0], skills: ['Snort', 'iptables', 'OWASP'] },
+    { name: 'AI', color: '#8A2BE2', position: [8, -5, 0], skills: ['TensorFlow', 'PyTorch', 'NLP'] },
   ];
 
-  const [hoveredPlanet, setHoveredPlanet] = useState(null);
+  const [setHoveredPlanet] = useState(null);
+  const [selectedPlanet, setSelectedPlanet] = useState(null); // Track the selected planet
 
   return (
     <Canvas style={{ height: '100vh', background: 'black' }}>
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} />
       <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade />
-      <OrbitControls /> {/* Keep orbit controls for zooming and rotation */}
+      <OrbitControls enableZoom={!selectedPlanet} enablePan={!selectedPlanet} /> {/*orbit controls for zooming and rotation */}
 
       {planets.map((planet, index) => (
         <group
@@ -26,6 +27,7 @@ const SkillsPlanets = () => {
           position={planet.position}
           onPointerOver={() => setHoveredPlanet(planet)}
           onPointerOut={() => setHoveredPlanet(null)}
+          onClick={() => setSelectedPlanet(planet)}
         >
           {/* Planet */}
           <Sphere args={[2, 32, 32]}>
@@ -47,6 +49,9 @@ const SkillsPlanets = () => {
           <RotatingSkills skills={planet.skills} radius={4} />
         </group>
       ))}
+
+      {/* Camera Movement */}
+      {/*{selectedPlanet && <ZoomCamera target={selectedPlanet.position} />} */}
     </Canvas>
   );
 };
@@ -91,6 +96,35 @@ const RotatingSkills = ({ skills, radius }) => {
     </group>
   );
 };
+
+
+// Smooth camera zoom-in
+const ZoomCamera = ({ target }) => {
+    const { camera } = useThree();
+    const targetRef = useRef(target);
+    const zoomSpeed = 0.05;
+  
+    useFrame(() => {
+      if (targetRef.current) {
+        camera.position.lerp(
+          { x: targetRef.current[0], y: targetRef.current[1], z: targetRef.current[2] + 5 }, // Offset for viewing the planet
+          zoomSpeed
+        );
+        camera.lookAt(targetRef.current[0], targetRef.current[1], targetRef.current[2]); // Focus on the planet
+      }
+    });
+  
+    return null;
+  };
+  
+  ZoomCamera.propTypes = {
+    target: PropTypes.arrayOf(PropTypes.number).isRequired,
+  };
+  
+  RotatingSkills.propTypes = {
+    skills: PropTypes.arrayOf(PropTypes.string).isRequired,
+    radius: PropTypes.number.isRequired,
+  };
 
 // Prop validation for RotatingSkills
 RotatingSkills.propTypes = {
