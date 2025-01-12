@@ -1,7 +1,7 @@
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Sphere, Stars, Text } from '@react-three/drei';
 import { useRef, useState } from 'react';
-import PropTypes from 'prop-types'; // Import PropTypes for prop validation
+import PropTypes from 'prop-types'; 
 
 const SkillsPlanets = () => {
   const planets = [
@@ -12,7 +12,7 @@ const SkillsPlanets = () => {
   ];
 
   const [setHoveredPlanet] = useState(null);
-  const [selectedPlanet, setSelectedPlanet] = useState(null); // Track the selected planet
+  const [selectedPlanet, setSelectedPlanet] = useState(null); 
 
   return (
     <Canvas style={{ height: '100vh', background: 'black' }}>
@@ -36,7 +36,7 @@ const SkillsPlanets = () => {
 
           {/* Planet Title */}
           <Text
-            position={[0, 3, 0]} // Increased vertical offset for title
+            position={[0, 3, 0]}
             fontSize={0.5}
             color="white"
             anchorX="center"
@@ -61,10 +61,10 @@ const RotatingSkills = ({ skills, radius }) => {
 
   useFrame(({ camera }) => {
     if (groupRef.current) {
-      // Rotate the entire group of orbiting skills
+      
       groupRef.current.rotation.y += 0.01;
 
-      // Make each skill text face the camera
+     
       groupRef.current.children.forEach((child) => {
         if (child.lookAt) {
           child.lookAt(camera.position);
@@ -76,7 +76,7 @@ const RotatingSkills = ({ skills, radius }) => {
   return (
     <group ref={groupRef}>
       {skills.map((skill, idx) => {
-        const angle = (idx * 2 * Math.PI) / skills.length; // Evenly spaced angle
+        const angle = (idx * 2 * Math.PI) / skills.length; 
         const x = Math.sin(angle) * radius;
         const z = Math.cos(angle) * radius;
 
@@ -107,10 +107,10 @@ const ZoomCamera = ({ target }) => {
     useFrame(() => {
       if (targetRef.current) {
         camera.position.lerp(
-          { x: targetRef.current[0], y: targetRef.current[1], z: targetRef.current[2] + 5 }, // Offset for viewing the planet
+          { x: targetRef.current[0], y: targetRef.current[1], z: targetRef.current[2] + 5 }, 
           zoomSpeed
         );
-        camera.lookAt(targetRef.current[0], targetRef.current[1], targetRef.current[2]); // Focus on the planet
+        camera.lookAt(targetRef.current[0], targetRef.current[1], targetRef.current[2]); 
       }
     });
   
@@ -126,7 +126,6 @@ const ZoomCamera = ({ target }) => {
     radius: PropTypes.number.isRequired,
   };
 
-// Prop validation for RotatingSkills
 RotatingSkills.propTypes = {
   skills: PropTypes.arrayOf(PropTypes.string).isRequired,
   radius: PropTypes.number.isRequired,

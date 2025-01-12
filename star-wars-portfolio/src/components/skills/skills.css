@@ -1,0 +1,91 @@
+.skills-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* Remove padding */
+    background-color: #000; /* Space black background */
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevents content overflow */
+    color: #fff; /* White text for contrast */
+}
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    z-index: 2; /* Ensures it's above the window */
+    color: #333;
+
+  }
+  
+  .skills-window {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensures it spans the full section width */
+    height: 100%; /* Ensures it spans the full section height */
+    box-sizing: border-box; /* Includes border in size calculation */
+    border-radius: 15px;
+    border-top: 8px solid rgba(255, 255, 255, 0.8); /* Light top border */
+    border-left: 8px solid rgba(255, 255, 255, 0.8);
+    border-right: 8px solid rgba(255, 255, 255, 0.8);
+    border-bottom: 20px solid rgba(255, 255, 255, 0.8); /* Thicker bottom border */
+    background: radial-gradient(circle, #1a1a1a, #000); /* Subtle radial gradient */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.1); /* Outer and inner glow */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1; /* Below title and button */
+    overflow: hidden; /* Ensures no overflow content */
+}
+
+  
+  .skills-window > canvas {
+    width: auto;
+    height: auto;
+    display: block; /* Ensures proper canvas sizing */
+  }
+  
+  /* Decorative "control buttons" */
+  .skills-window::before,
+  .skills-window::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: rgba(255, 255, 255, 0.8); /* Bright circles */
+    border-radius: 50%; /* Makes them circular */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.4); /* Adds a glow effect */
+    top: 10px; /* Position near the top */
+  }
+  
+  .skills-window::before {
+    left: 10px; /* Left button */
+  }
+  
+  .skills-window::after {
+    right: 10px; /* Right button */
+  }
+  
+  button {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8); /* Semi-transparent white text */
+    padding: 10px 20px;
+    border: none;
+    background: rgba(26, 26, 26, 0.6); /* Matches the radial gradient of the background */
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1), inset 0 0 10px rgba(255, 255, 255, 0.1); /* Glow effect */
+    cursor: pointer;
+    margin-top: 20px;
+    z-index: 2; /* Ensures it's above the window */
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2), inset 0 0 15px rgba(255, 255, 255, 0.2); /* Enhanced glow on hover */
+    background: rgba(26, 26, 26, 0.8); /* Slightly darker on hover */
+}
+  
+  
