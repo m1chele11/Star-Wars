@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import SkillsPlanets from './SkillsPlanets';
-import './skills.css'; // Import the CSS file for styling
+import './skills.css';
 
 const Skills = ({ handleStartTransitionToAbout }) => {
   return (
