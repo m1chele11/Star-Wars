@@ -11,10 +11,10 @@ const App = () => {
   const [showSkills, setShowSkills] = useState(false);
   const [showAbout, setShowAbout] = useState(true); 
 
-  // Trigger the light-speed jump effect to go to the Skills section
+
   const handleStartTransitionToSkills = () => {
     setTransitioning(true);
-    setShowAbout(false); // Hide About section while transitioning
+    setShowAbout(false); 
 
     // Set a timeout to show Skills after the light-speed transition finishes
     setTimeout(() => {
@@ -26,11 +26,11 @@ const App = () => {
   // Trigger the light-speed jump effect to go back to the About section
   const handleStartTransitionToAbout = () => {
     setTransitioning(true);
-    setShowSkills(false); // Hide Skills section during the transition
+    setShowSkills(false); 
     
     setTimeout(() => {
       setTransitioning(false);  
-      setShowAbout(true);  // Show the About section after the transition
+      setShowAbout(true);  
     }, 2000);  
   };
 

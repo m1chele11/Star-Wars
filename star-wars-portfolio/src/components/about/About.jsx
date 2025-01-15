@@ -26,7 +26,7 @@ const About = () => {
   }, []);
 
   return (
-    <section className="about-me">
+    <section id="about" className="about-me">
       {/* Avatar Image */}
       <div className="avatar-container">
         <img

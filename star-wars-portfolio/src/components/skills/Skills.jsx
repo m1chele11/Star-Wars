@@ -4,7 +4,7 @@ import './skills.css';
 
 const Skills = ({ handleStartTransitionToAbout }) => {
   return (
-    <section className="skills-section">
+    <section id='skills1' className="skills-section">
       <h2 className="section-title">My Skills</h2>
       {/* Full-window effect for SkillsPlanets */}
       <div className="skills-window">
