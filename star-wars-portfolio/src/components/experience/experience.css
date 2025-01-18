@@ -1,0 +1,112 @@
+.experience {
+    background: #000; /* Dark background to represent space */
+    color: #fff;
+    padding: 50px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .experience-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #ffe81f;
+  }
+  
+  .timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+  
+  .timeline-item {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    margin: 30px 0;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    color: #ffe81f;
+    transition: all 0.3s ease;
+  }
+  
+  .timeline-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+  }
+  
+  .timeline-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .mission-title {
+    font-size: 1.8rem;
+    margin: 0;
+    color: #ffe81f;
+  }
+  
+  .mission-duration {
+    font-size: 1.2rem;
+    color: #aaa;
+    margin-top: 10px;
+  }
+  
+  .mission-description {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 15px;
+  }
+  
+  .mission-description li {
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+  
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 20px;
+    width: 20px;
+    background-color: #ffe81f;
+    border-radius: 50%;
+    border: 3px solid #000;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  }
+  
+  .timeline-item:first-child::before {
+    top: 10px;
+  }
+  
+  .timeline-item::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  .timeline-item:last-child::after {
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .timeline {
+      padding: 0 20px;
+    }
+    .timeline-item {
+      width: 100%;
+      padding: 15px;
+    }
+  }
+  

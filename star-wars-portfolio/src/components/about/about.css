@@ -1,144 +1,137 @@
 .about-me {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: row; 
-    justify-content: center;
-    align-items: center;
-    text-align: left;
-    color: white;
-    z-index: 2;
-    padding: 20px;
-    box-sizing: border-box; 
-    overflow: hidden; 
-    transition: opacity 0.3s ease-in-out; 
-    cursor: default; 
-  }
-  
-  .avatar-container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    max-width: 300px; 
-    box-sizing: border-box;
-  }
-
-  .about-me:hover{
-    opacity: 0.8; 
-    cursor: pointer;
-  }
-  
-  .avatar-hologram {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    border: 2px solid rgba(0, 191, 255, 0.8);
-    box-shadow: 0 0 15px rgba(0, 191, 255, 0.6), 0 0 30px rgba(0, 191, 255, 0.4);
-    animation: hologram-flicker 3s infinite;
-  }
-  
-  @keyframes hologram-flicker {
-    0% {
-      opacity: 1;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 0.9;
-      transform: scale(1.02);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-  
-  
-.about-text {
-    flex: 2;
-    position: relative;
-    z-index: 2;
-    max-width: 600px;
-    margin-left: 20px;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
-    overflow-wrap: break-word;
-    color: #FFE81F;
+  position: relative;
+  width: 100%;
+  height: auto; /* Changed to allow content to expand dynamically */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  color: white;
+  z-index: 2;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: opacity 0.3s ease-in-out;
+  cursor: default;
 }
 
-  .title{
-    align-items: center;
-  }
+.avatar-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  max-width: 300px;
+  box-sizing: border-box;
+}
 
-  .time-ago{
-    color: white;
-  }
+.about-me:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
 
-  
-  .about-text.start-animation {
+.avatar-hologram {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 191, 255, 0.8);
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.6), 0 0 30px rgba(0, 191, 255, 0.4);
+  animation: hologram-flicker 3s infinite;
+}
+
+@keyframes hologram-flicker {
+  0% {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1);
   }
-  
-  .about-me h2 {
-    font-size: 2rem; 
-    margin-top: 20px;
-    font-weight: bold;
+  50% {
+    opacity: 0.9;
+    transform: scale(1.02);
   }
-  
-  .about-me p {
-    font-size: 1rem; 
-    margin-top: 10px;
-    line-height: 1.6;
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
-  
+}
+
+.about-text {
+  flex: 2;
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin-left: 20px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+  overflow-wrap: break-word;
+  color: #FFE81F;
+}
+
+.title {
+  align-items: center;
+}
+
+.time-ago {
+  color: white;
+}
+
+.about-text.start-animation {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-me h2 {
+  font-size: 2rem;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.about-me p {
+  font-size: 1rem;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+.lightsaber-separator {
+  width: 80%;
+  max-width: 600px;
+  height: 5px;
+  background: linear-gradient(to right, #ff0000, #ffffff, #ff0000);
+  border-radius: 5px;
+  margin: 20px auto;
+  animation: lightsaber-animation 1s ease-in-out infinite alternate;
+}
+
+@keyframes lightsaber-animation {
+  0% {
+    transform: scaleX(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scaleX(1.2);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-me {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+
+  .about-text {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .avatar-hologram {
+    width: 150px;
+    height: 150px;
+  }
+
   .lightsaber-separator {
-    width: 80%;
-    max-width: 600px; 
-    height: 5px;
-    background: linear-gradient(to right, #ff0000, #ffffff, #ff0000);
-    border-radius: 5px;
-    margin: 20px auto;
-    animation: lightsaber-animation 1s ease-in-out infinite alternate;
+    width: 60%;
   }
-  
-  @keyframes lightsaber-animation {
-    0% {
-      transform: scaleX(1);
-      opacity: 0.8;
-    }
-    100% {
-      transform: scaleX(1.2);
-      opacity: 1;
-    }
-  }
-  
-  
-  @media (max-width: 768px) {
-    .about-me {
-      flex-direction: column; 
-      height: auto; 
-      padding: 20px;
-    }
-  
-    .about-text {
-      margin-left: 0;
-      text-align: center; 
-    }
-  
-    .avatar-hologram {
-      width: 150px;
-      height: 150px;
-    }
-  
-    .lightsaber-separator {
-      width: 60%;
-    }
-  }
-  
-
-
-  
+}

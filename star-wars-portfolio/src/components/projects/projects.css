@@ -1,0 +1,97 @@
+.star-map-section {
+    position: relative;
+    background: radial-gradient(circle at center, #000d1a, #000000);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+    overflow: hidden;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    font-family: 'Star Jedi', sans-serif;
+    color: #FFE81F;
+    margin-bottom: 40px;
+  }
+  
+  .star-map-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .star {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background: #00bfff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.8), 0 0 20px rgba(0, 191, 255, 0.5);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .star:hover {
+    transform: scale(1.5);
+    box-shadow: 0 0 20px rgba(0, 191, 255, 1), 0 0 40px rgba(0, 191, 255, 0.7);
+  }
+  
+  .tooltip {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 10;
+  }
+  
+  .star:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .tooltip h3 {
+    font-size: 1.2rem;
+    color: #FFE81F;
+  }
+  
+  .tooltip p {
+    font-size: 1rem;
+    color: white;
+    margin: 5px 0;
+  }
+  
+  .tooltip a {
+    color: #00bfff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .tooltip a:hover {
+    text-shadow: 0 0 10px #00bfff;
+  }
+  
+  @keyframes star-twinkle {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+  
+  .star {
+    animation: star-twinkle 2s infinite alternate;
+  }
+  
