@@ -3,6 +3,10 @@ import { useEffect, useRef } from 'react';
 import Rellax from 'rellax';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger'; 
+import securityRes from '../../../public/assets/res/MicheleB_Res.pdf'
+import SWERes from '../../../public/assets/res/MicheleB_SWE.pdf'
+
+
 
 gsap.registerPlugin(ScrollTrigger); 
 
@@ -10,12 +14,12 @@ const HeroSection = () => {
   const crawlTextRef = useRef(null);
 
   const scrollToProjects = () => {
-    const projectsSection = document.getElementById('projects-section');
+    const projectsSection = document.getElementById('projects');
     projectsSection.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleDownloadCV = (cvType) => {
-    const filePath = cvType === 'Security' ? '/path/to/security-cv.pdf' : '/path/to/swe-cv.pdf';
+    const filePath = cvType === 'Security' ? securityRes : SWERes;
     const link = document.createElement('a');
     link.href = filePath;
     link.download = `${cvType}_CV.pdf`;

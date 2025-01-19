@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 
 const SkillsPlanets = () => {
   const planets = [
-    { name: 'Frontend', color: '#00BFFF', position: [-8, 5, 0], skills: ['React', 'CSS', 'JavaScript'] },
-    { name: 'Backend', color: '#32CD32', position: [8, 5, 0], skills: ['Java', 'Node.js', 'Spring Boot'] },
-    { name: 'Security', color: '#FF4500', position: [-8, -5, 0], skills: ['Snort', 'iptables', 'OWASP'] },
-    { name: 'AI', color: '#8A2BE2', position: [8, -5, 0], skills: ['TensorFlow', 'PyTorch', 'NLP'] },
+    { name: 'Frontend', color: '#00BFFF', position: [-8, 5, 0], skills: ['React', 'HTML/CSS', 'JavaScript', 'Bootstrap' ] },
+    { name: 'Backend', color: '#32CD32', position: [8, 5, 0], skills: ['Java', 'Node.js', 'Spring Boot', 'Python', 'Kotlin', 'C/C++', 'PostgeSQL', 'Docker'] },
+    { name: 'Security', color: '#FF4500', position: [-8, -5, 0], skills: ['Snort', 'iptables', 'Certificate Management', 'PKI', 'Cryptography', 'Firewalls'] },
+    { name: 'AI', color: '#8A2BE2', position: [8, -5, 0], skills: ['TensorFlow', 'PyTorch', 'NLP', 'Scikit-learn', 'NLP', 'Spacy'] },
   ];
 
   const [setHoveredPlanet] = useState(null);
