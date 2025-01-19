@@ -2,27 +2,29 @@ const Skillsp2 = () => {
     const skills = [
       {
         category: 'Frontend',
-        skills: ['React', 'CSS', 'JavaScript', 'HTML'],
+        skills: ['React', 'Bootstrap', 'JavaScript', 'HTML/CSS'],
         color: '#00BFFF', // Blue
       },
       {
         category: 'Backend',
-        skills: ['Java', 'Node.js', 'Spring Boot', 'Express.js'],
+        skills: ['Java', 'Node.js', 'Spring Boot', 'Python', 'Kotlin', 'C/C++', 'PostgreSQL', 'Docker'],
         color: '#32CD32', // Green
       },
       {
         category: 'Security',
-        skills: ['Snort', 'iptables', 'OWASP', 'Firewalls'],
+        skills: ['Snort', 'iptables', 'Certificate Managment', 'PKI', 'Cryptography', 'Firewalls'],
         color: '#FF4500', // Red
       },
       {
         category: 'AI & ML',
-        skills: ['TensorFlow', 'PyTorch', 'NLP', 'Scikit-learn'],
+        skills: ['TensorFlow', 'PyTorch', 'NLP', 'Scikit-learn', 'NLP', 'Spacy'],
         color: '#8A2BE2', // Purple
       },
     ];
   
     return (
+      
+      <section id="skills">
       <div style={{ padding: '2rem', backgroundColor: '#000', color: '#fff' }}>
         <h2
           style={{
@@ -85,6 +87,8 @@ const Skillsp2 = () => {
           ))}
         </div>
       </div>
+
+      </section>
     );
   };
   

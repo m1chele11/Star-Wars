@@ -5,16 +5,31 @@
     text-align: center;
     padding: 50px 20px;
     overflow: hidden;
-  }
-  
-  .section-title {
+}
+
+.star-map-section::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 200px;
+    background: linear-gradient(to top, rgba(0, 191, 255, 0.5), rgba(0, 191, 255, 0.2), transparent);
+    filter: blur(20px);
+    z-index: 0;
+}
+
+.section-title {
     font-size: 2.5rem;
     font-family: 'Star Jedi', sans-serif;
     color: #FFE81F;
     margin-bottom: 40px;
-  }
-  
-  .star-map-container {
+    position: relative;
+    z-index: 1;
+}
+
+.star-map-container {
     position: relative;
     width: 100%;
     height: 500px;
@@ -22,9 +37,10 @@
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-  }
-  
-  .star {
+    z-index: 1;
+}
+
+.star {
     position: relative;
     width: 20px;
     height: 20px;
@@ -33,14 +49,14 @@
     box-shadow: 0 0 10px rgba(0, 191, 255, 0.8), 0 0 20px rgba(0, 191, 255, 0.5);
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .star:hover {
+}
+
+.star:hover {
     transform: scale(1.5);
     box-shadow: 0 0 20px rgba(0, 191, 255, 1), 0 0 40px rgba(0, 191, 255, 0.7);
-  }
-  
-  .tooltip {
+}
+
+.tooltip {
     position: absolute;
     bottom: 30px;
     left: 50%;
@@ -54,44 +70,43 @@
     text-align: center;
     transition: opacity 0.3s ease, visibility 0.3s ease;
     z-index: 10;
-  }
-  
-  .star:hover .tooltip {
+}
+
+.star:hover .tooltip {
     opacity: 1;
     visibility: visible;
-  }
-  
-  .tooltip h3 {
+}
+
+.tooltip h3 {
     font-size: 1.2rem;
     color: #FFE81F;
-  }
-  
-  .tooltip p {
+}
+
+.tooltip p {
     font-size: 1rem;
     color: white;
     margin: 5px 0;
-  }
-  
-  .tooltip a {
+}
+
+.tooltip a {
     color: #00bfff;
     text-decoration: none;
     font-weight: bold;
-  }
-  
-  .tooltip a:hover {
+}
+
+.tooltip a:hover {
     text-shadow: 0 0 10px #00bfff;
-  }
-  
-  @keyframes star-twinkle {
+}
+
+@keyframes star-twinkle {
     0%, 100% {
-      opacity: 1;
+        opacity: 1;
     }
     50% {
-      opacity: 0.8;
+        opacity: 0.8;
     }
-  }
-  
-  .star {
+}
+
+.star {
     animation: star-twinkle 2s infinite alternate;
-  }
-  
+}

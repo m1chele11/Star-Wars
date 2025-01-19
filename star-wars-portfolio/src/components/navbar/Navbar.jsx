@@ -27,6 +27,8 @@ const Navbar = () => {
         <li><a href="#about" onClick={() => scrollToSection('#about')} className={`navbar-link ${activeNav === '#about' ? 'active' : ''}`}>About</a></li>
         <li><a href="#projects" onClick={() => scrollToSection('#projects')} className={`navbar-link ${activeNav === '#projects' ? 'active' : ''}`}>Projects</a></li>
         <li><a href="#contact" onClick={() => scrollToSection('#contact')} className={`navbar-link ${activeNav === '#contact' ? 'active' : ''}`}>Contact</a></li>
+        <li><a href="#skills" onClick={() => scrollToSection('#skills')} className={`navbar-link ${activeNav === '#skills' ? 'active' : ''}`}>skills</a></li>
+
       </ul>
     </nav>
   );

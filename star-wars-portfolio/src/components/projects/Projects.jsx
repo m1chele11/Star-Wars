@@ -2,28 +2,36 @@ import './projects.css';
 
 const projects = [
   {
-    title: "Hydro Hero",
-    description: "Track your hydration using OCR and React.",
-    tech: "React, OCR, Node.js",
-    link: "#",
+    title: "Momentum",
+    description: "Set daily goals. REACT Native",
+    tech: "React native, Expo Go",
+    link: "https://github.com/m1chele11/Momentum",
   },
   {
-    title: "Real-Time Expense Tracker",
-    description: "Monitor expenses with AWS serverless architecture.",
-    tech: "AWS, Lambda, QuickSight",
-    link: "#",
+    title: "Disney NLP",
+    description: "Sentiment Analyis ML. Python",
+    tech: "Python,jupyter notebook",
+    link: "https://github.com/m1chele11/DisneyNLP",
   },
   {
-    title: "Snort Intrusion Detection",
-    description: "A security project for detecting malicious traffic.",
-    tech: "Snort, Linux, iptables",
-    link: "#",
+    title: "Algorithm Application",
+    description: "Various tree traversal. Java",
+    tech: "Java",
+    link: "https://github.com/m1chele11/DSA",
   },
+  {
+    title: "Certificate Signing",
+    description: "Key generation and file encryption. Python",
+    tech: "Python",
+    link: "https://github.com/m1chele11/Certificate-Based-File-Encryption",
+  },
+  
+ 
 ];
 
 const Projects = () => {
   return (
-    <section id="star-map" className="star-map-section">
+    <section id="projects" className="star-map-section">
       <h2 className="section-title">Star Map: Explorations</h2>
       <div className="star-map-container">
         {projects.map((project, index) => (
@@ -34,9 +42,13 @@ const Projects = () => {
               <a href={project.link} target="_blank" rel="noopener noreferrer">
                 View Mission
               </a>
+
+              
             </div>
           </div>
         ))}
+
+
       </div>
     </section>
   );

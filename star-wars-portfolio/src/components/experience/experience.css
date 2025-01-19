@@ -46,8 +46,9 @@
   
   .mission-title {
     font-size: 1.8rem;
-    margin: 0;
+    margin: 1;
     color: #ffe81f;
+    font-family: 'Courier New', Courier, monospace;
   }
   
   .mission-duration {
@@ -63,6 +64,7 @@
   }
   
   .mission-description li {
+    list-style-type: disc;
     font-size: 1rem;
     margin: 5px 0;
   }

@@ -8,6 +8,8 @@ import LightSpeed from './components/starfield/LightSpeed.jsx';
 import SimpleSkillsSection from './components/skills/Skillsp2.jsx';
 import Experience from './components/experience/Experience.jsx';
 import Projects from './components/projects/Projects.jsx';
+import Contact from './components/contact/Contact.jsx';
+
 
 const App = () => {
   const [transitioning, setTransitioning] = useState(false);
@@ -60,15 +62,18 @@ const App = () => {
       {showSkills && !transitioning && (
         <>
           <Skills handleStartTransitionToAbout={handleStartTransitionToAbout} />
-          <SimpleSkillsSection />
+          
         </>
       )}
 
       {/* Always Visible: Experience & Projects */}
       {!transitioning && (
         <>
+          <SimpleSkillsSection />
           <Experience />
           <Projects />
+          <Contact />
+          
         </>
       )}
     </>
